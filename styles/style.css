@@ -1,0 +1,15 @@
+.board {
+    display:grid;
+    grid-template-columns: auto auto auto;
+    
+    height: 200px;
+    width: 200px;
+}
+
+.square {
+    text-align: center;
+    font-size: large;
+    border: 1px solid black;
+    margin: 0%;
+
+}
