@@ -40,7 +40,7 @@ const gamePlay = (gameboard, mark) => {
   mark = player1.mark;
   console.log(player1.mark);
 
-  const play = ((mark) => {
+  ((mark) => {
     squares.forEach((square) => {
       square.addEventListener('click', (square) => {
         if (!checkWinner(gameboard)) {
@@ -69,26 +69,13 @@ const gamePlay = (gameboard, mark) => {
       document.querySelector('.result').innerHTML =
         'It was a tie! Want to play again?';
     } else {
-      document.querySelector('.result').innerHTML =
-      `${player.name} won! Want to play again?`;
+      document.querySelector(
+        '.result'
+      ).innerHTML = `${player.name} won! Want to play again?`;
     }
     document.querySelector('.result-div').style.display = 'block';
   };
 };
-
-// ===============================================
-function fillBoard() {
-  for (let i = 0; i < gameBoard.gameboard.length; i++) {
-    document.getElementById(`${i}`).innerHTML = gameBoard.gameboard[i];
-  }
-}
-
-// select_buttons.forEach((button) => {
-//   button.addEventListener('click', (e) => {
-//     let players = selectPlayer(e.target.innerHTML)
-//     return players
-//   });
-// });
 
 const selectPlayer = (mark1) => {
   const name1 = document.querySelector('#name1').value;
@@ -127,7 +114,7 @@ const addMark = (e, mark) => {
   }
 };
 
-function checkWinner(gameboard) {
+const checkWinner = (gameboard) => {
   const v0 = gameboard[0];
   const v1 = gameboard[1];
   const v2 = gameboard[2];
@@ -154,16 +141,13 @@ function checkWinner(gameboard) {
   } else {
     return false;
   }
-}
+};
 
-function boardFull(gameboard) {
+const boardFull = (gameboard) => {
   for (var i = 0, l = gameboard.length; i < l; i++) {
     if (gameboard[i] === '') {
       return false;
     }
   }
   return true;
-}
-
-fillBoard();
-checkWinner(gameBoard.gameboard);
+};
